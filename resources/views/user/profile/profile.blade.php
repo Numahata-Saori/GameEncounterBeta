@@ -8,8 +8,8 @@
 
       <br>
       <div>
-        <a class="btn btn-primary" href="{{ route('profile/create') }}" role="button">新規登録</a>
-        <a class="btn btn-primary" href="{{ route('profile/edit') }}" role="button">編集</a>
+        <a class="btn btn-primary" href="{{ route('profile_create') }}" role="button">新規登録</a>
+        <a class="btn btn-primary" href="{{ route('profile_edit') }}" role="button">編集</a>
         <a class="btn btn-primary" href="{{ action('User\ProfileController@edit') }}">編集</a>
       </div>
       <br>
@@ -76,6 +76,7 @@
         <div class="form-group row">
           <div class="mb-3">
             <label class="form-label">所持ゲーム</label><br>
+            {{-- {!! nl2br(htmlspecialchars(変数名)) !!}→htmlspecialchars()でタグを無効化した後に、nl2br()の処理が行われる --}}
             <th>{!! Auth::user()->profile ? nl2br(htmlspecialchars(Auth::user()->profile->consolestr())) : '-' !!}</th>
           </div>
         </div>

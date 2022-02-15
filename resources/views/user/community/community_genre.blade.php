@@ -11,7 +11,7 @@
       <li>
         <div class="card btn-light {{ $genre->btn_color }} com-btn-1">
           <h5 class="com-btn-2">{!! nl2br(e($genre->name)) !!}</h5>
-          <a class="Link" href="{{ route('communitylist', ['console_id'=>$console->id, 'genre_id'=>$genre->id]) }}"></a>
+          <a class="Link" href="{{ route('community_genre_list', ['console_id'=>$console->id, 'genre_id'=>$genre->id]) }}"></a>
         </div>
       </li>
     @endforeach

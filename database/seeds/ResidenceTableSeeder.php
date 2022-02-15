@@ -12,6 +12,9 @@ class ResidenceTableSeeder extends Seeder
     public function run()
     {
         //
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
         DB::table('residences')->truncate();
 
         $residences = [
@@ -158,5 +161,7 @@ class ResidenceTableSeeder extends Seeder
             ],
         ];
         DB::table('residences')->insert($residences);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

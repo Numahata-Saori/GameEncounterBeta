@@ -13,4 +13,8 @@ class Community extends Model
         'genre_id',
         'explanation'
     ];
+
+    public function joins() {
+        return $this->hasMany('App\Join');
+    }
 }

@@ -137,7 +137,6 @@ class ProfileController extends Controller
 
         return view('user.profile.profile_edit', compact('profile', 'holidays','frequencies', 'consoles', 'genres', 'hol_arr', 'con_arr', 'gen_arr'));
 
-        // return view('user.profile.profile_edit', ['profile_form => $profile']);
     }
 
     public function update(Request $request) {
@@ -176,7 +175,7 @@ class ProfileController extends Controller
 
         $profile->save();
 
-        return redirect('profile');
+        return redirect()->route('profile');
     }
 
     public function index(Request $request) {

@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 mx-auto">
-      <h2>プロフィール</h2>
+      <h2 class="com-5">PROFILE 新規登録</h2>
       <form action="{{ action('User\ProfileController@create') }}" method="post" enctype="multipart/form-data">
         @csrf
         @if (count($errors) > 0)

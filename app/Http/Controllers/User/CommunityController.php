@@ -4,9 +4,11 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 use App\Console;
 use App\Genre;
 use App\Community;
+use App\Join;
 
 class CommunityController extends Controller
 {
@@ -46,43 +48,17 @@ class CommunityController extends Controller
         $console = Console::find($request->console_id);
         $genre = Genre::find($request->genre_id);
         $community = Community::find($request->community_id);
+
+        $join = Join::where('community_id', $request->community_id)->where('user_id', Auth::id())->first();
+
         return view('user.community.community_detail', compact('console', 'genre', 'community'));
     }
 
-    // public function comPs() {
-    //     return view('user.community.community_ps');
+    // public function joins() {
+    //     $community = Auth::user()->joins()->orderBy('created_at', 'desc');
+    //     $data = ['community' => $community,];
+    //     return view('user.community.community_detail', $data);
     // }
 
-    // public function comPsv() {
-    //     return view('user.community.community_psv');
-    // }
-
-    // public function comVr() {
-    //     return view('user.community.community_vr');
-    // }
-
-    // public function comXbox() {
-    //     return view('user.community.community_xbox');
-    // }
-
-    // public function comSwitch() {
-    //     return view('user.community.community_switch');
-    // }
-
-    // public function comDs() {
-    //     return view('user.community.community_3ds');
-    // }
-
-    // public function comPc() {
-    //     return view('user.community.community_pc');
-    // }
-
-    // public function comOther() {
-    //     return view('user.community.community_other');
-    // }
-
-    // public function comPsGenre() {
-    //     return view('user.community.community_ps_genre');
-    // }
 
 }

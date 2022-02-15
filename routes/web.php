@@ -22,28 +22,16 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-/*
-|--------------------------------------------------------------------------
-| 1) User 認証不要
-|--------------------------------------------------------------------------
-*/
+/*1) User 認証不要*/
 Route::get('/', function () { return redirect('/'); })->name('login');
 
-/*
-|--------------------------------------------------------------------------
-| 2) User ログイン後
-|--------------------------------------------------------------------------
-*/
+/*2) User ログイン後*/
 Route::group(['middleware' => 'auth:user'], function() {
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
     Route::get('/', 'Auth\LoginController@index')->name('user.home');
 });
 
-/*
-|--------------------------------------------------------------------------
-| 3) Admin 認証不要
-|--------------------------------------------------------------------------
-*/
+/*3) Admin 認証不要*/
 Route::group(['prefix' => 'admin'], function() {
     // Route::get('/', function () { return redirect('/admin/home'); });
     // Route::get('home',     'Admin\HomeController@index')->name('admin.home');
@@ -51,11 +39,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('login',    'Admin\LoginController@login');
 });
 
-/*
-|--------------------------------------------------------------------------
-| 4) Admin ログイン後
-|--------------------------------------------------------------------------
-*/
+/*4) Admin ログイン後*/
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('logout', 'Admin\LoginController@adminLogout')->name('admin.logout');
     Route::get('/', 'Admin\HomeController@index')->name('admin.home');
@@ -68,38 +52,34 @@ Route::get('/', 'User\CommunityController@index')->name('community');
 Route::group(['prefix' => '/', 'middleware' => 'auth'], function() {
     // コミュニティ
     // Route::get('/', 'User\CommunityController@index')->name('community');
-    Route::get('/community/genre', 'User\CommunityController@communitygenre')->name('communitygenre');
-    Route::get('/community/genre/list', 'User\CommunityController@communitylist')->name('communitylist');
-    Route::get('/community/genre/list/detail', 'User\CommunityController@communitydetail')->name('communitydetail');
+    Route::get('/community/genre', 'User\CommunityController@communitygenre')->name('community_genre');
+    Route::get('/community/genre/list', 'User\CommunityController@communitylist')->name('community_genre_list');
+    Route::get('/community/genre/list/detail', 'User\CommunityController@communitydetail')->name('community_genre_list_detail');
 
-    // Route::get('/community/ps', 'User\CommunityController@comPs')->name('ps4/5');
-    // Route::get('/community/psv', 'User\CommunityController@comPsv')->name('psv');
-    // Route::get('/community/vr', 'User\CommunityController@comVr')->name('vr');
-    // Route::get('/community/xbox', 'User\CommunityController@comXbox')->name('xbox');
-    // Route::get('/community/switch', 'User\CommunityController@comSwitch')->name('switch');
-    // Route::get('/community/3ds', 'User\CommunityController@comDs')->name('3ds');
-    // Route::get('/community/pc', 'User\CommunityController@comPc')->name('pc');
-    // Route::get('/community/other', 'User\CommunityController@comOther')->name('other');
+    // コミュニティ参加/退会
+    Route::post('/community/genre/list/detail/join', 'User\JoinController@join')->name('community_join');
+    Route::delete('/community/genre/list/detail/leave', 'User\JoinController@leave')->name('community_leave');
+    // Route::get('/community/genre/list/detail', 'User\CommunityController@joins')->name('community_joins');
 
     // お知らせ
     Route::get('/notice', 'User\NoticeController@notice')->name('notice');
-    Route::get('/notice/nice-partner', 'User\NoticeController@noticeNice')->name('notice/nice-partner');
-    Route::get('/notice/chat', 'User\NoticeController@noticeChat')->name('notice/chat');
+    Route::get('/notice/nice-partner', 'User\NoticeController@noticeNice')->name('notice_nice-partner');
+    Route::get('/notice/chat', 'User\NoticeController@noticeChat')->name('notice_chat');
 
     // いいね
-    Route::get('/nice/from-partner', 'User\NiceController@nicePartner')->name('nice/from-partner');
-    Route::get('/nice/from-me', 'User\NiceController@niceMe')->name('nice/from-me');
+    Route::get('/nice/from-partner', 'User\NiceController@nicePartner')->name('nice_from-partner');
+    Route::get('/nice/from-me', 'User\NiceController@niceMe')->name('nice_from-me');
     // チャット
     Route::get('/chat', 'User\ChatController@chat')->name('chat');
 
     // プロフィール
     Route::get('/profile', 'User\ProfileController@index')->name('profile');
 
-    Route::get('/profile/create', 'User\ProfileController@add')->name('profile/add');
-    Route::post('/profile/create', 'User\ProfileController@create')->name('profile/create');
+    Route::get('/profile/create', 'User\ProfileController@add')->name('profile_add');
+    Route::post('/profile/create', 'User\ProfileController@create')->name('profile_create');
 
-    Route::get('/profile/edit', 'User\ProfileController@edit')->name('profile/edit');
-    Route::post('/profile/edit', 'User\ProfileController@update')->name('profile/update');
+    Route::get('/profile/edit', 'User\ProfileController@edit')->name('profile_edit');
+    Route::post('/profile/edit', 'User\ProfileController@update')->name('profile_update');
     // ステータス
     Route::get('/status', 'User\StatusController@status')->name('status');
     // お問い合わせ
