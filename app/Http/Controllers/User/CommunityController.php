@@ -54,11 +54,5 @@ class CommunityController extends Controller
         return view('user.community.community_detail', compact('console', 'genre', 'community'));
     }
 
-    // public function joins() {
-    //     $community = Auth::user()->joins()->orderBy('created_at', 'desc');
-    //     $data = ['community' => $community,];
-    //     return view('user.community.community_detail', $data);
-    // }
-
 
 }

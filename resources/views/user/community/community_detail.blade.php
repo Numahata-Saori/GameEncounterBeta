@@ -4,7 +4,7 @@
 
 <div class="com-1">
   <div class="com-3 com-5">
-    <h2 class="com-5">GAME TOP</h2>
+    {{-- <h2 class="com-5">GAME TOP</h2> --}}
 
     {{-- <input type="hidden" name="community_id" value="{{$community->id}}"> --}}
 
@@ -33,7 +33,7 @@
       </div>
     </div> --}}
 
-    <h3 class="com-5">{{ $community->name }}</h3>
+    <h2 class="com-5 join-title">{{ $community->name }}</h2>
 
     @if (Auth::check())
     {{-- {{ count(Auth::user()->joins->where('id', $community->id)) }}<br> --}}
@@ -41,23 +41,35 @@
     その中にcommunityのid(Controllerから取得したcommunityのid)があれば参加してるので退会ボタンを表示、なければ参加ボタンを表示 --}}
       @if (count(Auth::user()->joins->where('id', $community->id)))
       {{-- @if (Auth::user()->is_join($community->id)) --}}
-        <form action="{{action('User\JoinController@leave')}}" method="POST">
+        <form action="{{action('User\JoinController@leave')}}" method="POST" class="join-btn-layout">
           <input type="hidden" name="community_id" value="{{ $community->id }}">
           @csrf
           @method('DELETE')
-          <button type="submit">退会する</button>
+          <button class="join-btn">退会する</button>
         </form>
       @else
-        <form action="{{action('User\JoinController@join')}}" method="POST">
+        <form action="{{action('User\JoinController@join')}}" method="POST" class="join-btn-layout">
           <input type="hidden" name="community_id" value="{{ $community->id }}">
           @csrf
-          <button type="submit">参加する</button>
+          <button class="join-btn">参加する</button>
+          {{-- <a href="#" class="join-btn">参加する</a> --}}
         </form>
       @endif
+
+
+
     @endif
 
+    メンバー{{ count(Auth::user()->joins->where('id', $community->id)) }}人<br>
 
-    {{-- <a href="#" class=btn>参加する</a> --}}
+      {{-- {{ Auth::user()->joins[0]->name }} --}}
+
+      @foreach (Auth::user()->joins as $join)
+        {{ App\Profile::where('user_id', $join->pivot->user_id)->first()->name }}
+      @endforeach
+
+      {{-- {{ Auth::user()->profile->name }} --}}
+
 
   </div>
 </div>

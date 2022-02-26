@@ -111,7 +111,7 @@
 
         <main class="">
             <div class="row">
-                <div class="col-sm-12 col-md-3 p-0"> {{-- p-0→paddingを0にする --}}
+                <div class="col-sm-12 menu-layout"> {{-- p-0→paddingを0にする --}}
                     {{-- <div class="card">
                         <div class="card-header">メニュー</div>
                         <ul class="list-group list-group-flush">
@@ -147,7 +147,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href={{ route('notice') }}>
+                                <a href={{ route('nice_from-partner') }}>
                                     <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
                                     <span class="title">いいね</span>
                                 </a>
@@ -181,7 +181,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-md-9 p-0">
+                <div class="col-sm-12 main-layout">
                     @yield('content')
                 </div>
             </div>

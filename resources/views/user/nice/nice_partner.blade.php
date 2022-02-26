@@ -5,10 +5,10 @@
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="true" href={{ route('nice/from-partner') }}>相手からいいね</a>
+        <a class="nav-link active" aria-current="true" href={{ route('nice_from-partner') }}>相手からいいね</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href={{ route('nice/from-me') }}>あなたからいいね</a>
+        <a class="nav-link" href={{ route('nice_from-me') }}>あなたからいいね</a>
       </li>
     </ul>
   </div>

@@ -9,10 +9,10 @@
         <a class="nav-link" href={{ route('notice') }}>全体通知</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" aria-current="true" href={{ route('notice/nice-partner') }}>相手からいいね</a>
+        <a class="nav-link active" aria-current="true" href={{ route('notice_nice-partner') }}>相手からいいね</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href={{ route('notice/chat') }}>チャット</a>
+        <a class="nav-link" href={{ route('notice_chat') }}>チャット</a>
       </li>
     </ul>
   </div>

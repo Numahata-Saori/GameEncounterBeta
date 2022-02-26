@@ -1,71 +1,199 @@
-.com-1 {
-  /* width: 920px; */
+
+.com-btn-4{
+  font-size: 1vw;
 }
 
-.com-5 {
+/* game共通 */
+
+.comlayout {
   padding: 0px 16px;
 }
 
-.com-2 {
+.breadcrumb-color {
+  background-color: #e1eec1;
+}
+
+.comlayout-gallery {
   display: flex;
   flex-flow: row wrap;
   list-style: none;
   padding: 0px 16px;
 }
 
-.com-btn-1{
+.btnShape {
   position:relative;
   height: 100px;
   justify-content: center;
   border-radius: 10px;
 }
-.com-btn-1 .Link{
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+
+.btnShape .Link{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.com-btn-2{
+.comlayout-btnNameSize1 {
+  font-size: large;
+}
+
+.comlayout-btnName{
   line-height: normal;
   text-align: center;
+
   margin: 0px;
+  padding: 20px;
+
+  color: #212529;
+
+  /* display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; */
 }
 
-.com-btn-3 {
-  padding: 0px 16px;
-  display: flex;
-  flex-wrap: wrap;
+/* gameconsole */
+
+
+/* gamegenre */
+
+.comlayout-gallery li {
+  display: inline-block;
+  width: calc(25% - 15px);
+  margin: 5px 5px;
+  /* padding: 10px; */
+
+  /* columns: 4 5rem;
+  padding: 0 15px;
+  margin: 0; */
+}
+
+
+/* gamelist */
+
+.comlist-gallery{
+  columns: 4 5rem;
+  padding: 0 15px;
+  margin: 0;
+}
+
+.comlist-gallery li{
+  width: 100%;
+  /* height: auto; */
+
+  margin: 15px;
   list-style: none;
-}
 
-.com-btn-4{
-  font-size: 1vw;
-  /* letter-spacing: -1px; */
-}
+  line-height: normal;
+  text-align: center;
+  /* margin: 0px; */
 
-.com-3 ul li {
   display: inline-block;
-  width: calc(25% - 15px);
-  margin: 5px 5px;
-}
-
-.com-4 ul li {
-  display: inline-block;
-  width: calc(20% - 15px);
-  margin: 5px 5px;
-}
-
-.com-5 ul li {
-  display: inline-block;
-  width: calc(25% - 15px);
+  /* width: calc(25% - 15px); */
   margin: 5px 5px;
   /* font-size: 5px; */
 }
 
 
+
+/* btn効果 */
+
+/* クリックしたら波紋が広がる */
+.btnripple {
+  /* 波紋の基点とするためrelativeを指定 */
+  position: relative;
+  /* はみ出す波紋を隠す */
+  overflow: hidden;
+
+  /*ボタンの形状*/
+  text-decoration: none;
+  display: inline-block;
+  /* background: #333; */
+	/* color: #fff; */
+	padding: 10px 20px;
+	border-radius: 25px;
+  outline: none;
+}
+
+.btnripple::after {
+  content: "";
+  /*絶対配置で波紋位置を決める*/
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /*波紋の形状*/
+  background: radial-gradient(circle, #fff 10%, transparent 10%) no-repeat 50%;
+  transform: scale(10, 10);
+  /*はじめは透過0に*/
+  opacity: 0;
+  /*アニメーションの設定*/
+  transition: transform 0.5s, opacity 1s;
+}
+
+/*クリックされたあとの形状の設定*/
+.btnripple:active::after {
+  transform: scale(0, 0);
+  transition: 0s;
+  opacity: 0.3;
+}
+
+/* .btnripple:hover::before {
+  content: '';
+  position: absolute;
+  left: 30%;
+  top: 0;
+
+  border: 1px solid #333;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  opacity: 1;
+  animation: 1s circleanime2 forwards;
+} */
+
+@keyframes circleanime2 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* .btnripple::after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  right: -20px;
+  width: 5px;
+  height: 5px;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  transform: rotate(45deg);
+} */
+
+@media only screen and (max-width: 900px) {
+  .com-list-gallery {
+    columns: 3;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .com-list-gallery {
+    columns: 2;
+  }
+}
+
+
+/* game btn color */
 
 .btnx-indigo{
   background: var(--bs-indigo); border: 2px solid var(--bs-indigo);
@@ -114,14 +242,20 @@
 }
 
 .btnx-genre1{
-  color: #6E5064 ;background: #B9D0B1; border: 2px solid #B9D0B1;
+  color: #6E5064 ;background: #fabea7; border: 2px solid #fabea7;
 }
 .btnx-genre2{
-  color: #6E5064 ;background: #E1C0B6; border: 2px solid #E1C0B6;
+  color: #6E5064 ;background: #fcc9ac; border: 2px solid #fcc9ac;
+}
+.btnx-genre3{
+  color: #6E5064 ;background: #ffe0b6; border: 2px solid #ffe0b6;
+}
+.btnx-genre4{
+  color: #6E5064 ;background: #fffac2; border: 2px solid #fffac2;
 }
 
 .btnx-list1{
-  color: #6E5064 ;background: #DCC8DC; border: 2px solid #DCC8DC;
+  color: #6E5064 ;background: #fcc9ac; border: 2px solid #ffe0b6;
 }
 
 
@@ -130,3 +264,78 @@
   background: #e1eec1;
   height: 100vh;
 } */
+
+/* @charset "UTF-8";
+@import url("reset.css"); */
+
+body{
+    /* background: #1d1d1d; */
+    /*background: url("../img/top_bg.png") no-repeat center center;*/
+    /*background-size: cover;*/
+    /* height: 100vh; */
+
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.join-title{
+  display: inline-block;
+  margin: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.join-btn-layout{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.join-btn{
+    display: inline-block;
+    border: 1px solid white;
+    padding: 18px 80px 20px;
+    text-transform: uppercase;
+    color:  white;
+    text-decoration: none;
+
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    border-radius: 0;
+    font-family: "Helvetica Neue",Helvetica,Arial,Sana;
+
+    transition: all 0.7s ease-out;
+
+    margin: 0.7rem;
+
+    /* background: linear-gradient(270deg, rgba(137,247,254,0.8), rgba(102,166,255,0.8), rgba(0,0,0,0), rgba(0,0,0,0)); */
+    background: #fabea7;
+    background-size: 300% 300%;
+    background-position: 1% 50%;
+
+
+}
+
+/* .in{
+    background: linear-gradient(270deg, rgba(137,247,254,0.8), rgba(102,166,255,0.8), rgba(0,0,0,0), rgba(0,0,0,0));
+    background-size: 300% 300%;
+    background-position: 1% 50%;
+} */
+/* .up{
+    background: linear-gradient(270deg, rgba(250,112,154,0.8), rgba(254,225,64,0.8), rgba(0,0,0,0), rgba(0,0,0,0));
+    background-size: 300% 300%;
+    background-position: 1% 50%;
+} */
+
+.btn:hover{
+    color: white;
+    border: 1px solid rgba(193,164,112,0);
+    background-position: 99% 50%;
+}

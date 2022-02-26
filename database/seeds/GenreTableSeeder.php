@@ -26,15 +26,19 @@ class GenreTableSeeder extends Seeder
 
             [
                 'name' => 'シューティング',
-                'btn_color' => 'btnx-genre1',
+                'btn_color' => 'btnx-genre3',
             ],
             [
                 'name' => 'ロールプレイング',
-                'btn_color' => 'btnx-genre2',
+                'btn_color' => 'btnx-genre4',
             ],
             [
                 'name' => 'シミュレーション',
-                'btn_color' => 'btnx-genre1',
+                'btn_color' => 'btnx-genre4',
+            ],
+            [
+                'name' => "乙女ゲーム",
+                'btn_color' => 'btnx-genre3',
             ],
             [
                 'name' => 'スポーツ',
@@ -46,27 +50,27 @@ class GenreTableSeeder extends Seeder
             ],
             [
                 'name' => 'レース',
-                'btn_color' => 'btnx-genre2',
+                'btn_color' => 'btnx-genre1',
             ],
             [
                 'name' => '音楽ゲーム',
-                'btn_color' => 'btnx-genre1',
+                'btn_color' => 'btnx-genre2',
             ],
             [
                 'name' => 'パズル',
-                'btn_color' => 'btnx-genre2',
+                'btn_color' => 'btnx-genre3',
             ],
             [
                 'name' => 'テーブルゲーム',
-                'btn_color' => 'btnx-genre1',
+                'btn_color' => 'btnx-genre4',
             ],
             [
                 'name' => 'パーティ',
-                'btn_color' => 'btnx-genre2',
+                'btn_color' => 'btnx-genre4',
             ],
             [
                 'name' => 'コミュニケーション',
-                'btn_color' => 'btnx-genre1',
+                'btn_color' => 'btnx-genre3',
             ],
             [
                 'name' => '学習・教育',
@@ -75,10 +79,6 @@ class GenreTableSeeder extends Seeder
             [
                 'name' => 'トレーニング',
                 'btn_color' => 'btnx-genre1',
-            ],
-            [
-                'name' => "乙女ゲーム",
-                'btn_color' => 'btnx-genre2',
             ],
             [
                 'name' => 'ツール',
